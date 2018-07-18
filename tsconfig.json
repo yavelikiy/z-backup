@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "rootDir": "src",
+    "outDir": "dist/js",
+    "noEmitOnError": true,
+    "jsx": "react"
+  },
+  "include": [
+    "./src/common/typings2/**/*.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
+}

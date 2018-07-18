@@ -1,0 +1,6 @@
+@import '../../variables.scss';
+
+.root > div {
+  margin-top: $blocksMargin;
+  padding: 5px 10px;
+}

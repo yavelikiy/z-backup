@@ -1,0 +1,21 @@
+@import '../../variables.scss';
+
+.group {
+  margin-top: $blocksMargin;
+}
+
+.groupData {
+  padding: 0 $groupPadding;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row-reverse;  // disable link autofocus
+  align-items: center;
+  margin-top: $blocksMargin;
+}
+
+.linkWrapper {
+  flex-grow: 1;
+}
+

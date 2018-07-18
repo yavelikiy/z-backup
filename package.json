@@ -1,0 +1,46 @@
+{
+  "name": "zendesk-backup",
+  "version": "1.0.0",
+  "description": "zendesk-backup",
+  "scripts": {
+    "magic": "webpack",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "dev": "nf start"
+  },
+  "main": "src/electron-starter.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/mocha": "^2.2.48",
+    "@types/react": "^16.0.35",
+    "@types/react-dom": "^16.0.3",
+    "axios": "^0.17.1",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.9",
+    "lodash": "^4.17.5",
+    "lzutf8": "^0.4.7",
+    "node-sass": "^4.7.2",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "redux": "^3.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "wix-style-react": "^2.0.18",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "~0.0.49",
+    "@types/jquery": "~3.2.13",
+    "ts-loader": "~2.3.7",
+    "typescript": "~2.5.3",
+    "webpack": "~3.7.0",
+    "electron": "^2.0.5",
+    "foreman": "^3.0.1"
+  }
+}

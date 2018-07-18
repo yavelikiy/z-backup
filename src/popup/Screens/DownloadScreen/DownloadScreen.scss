@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.group {
+  margin-top: $blocksMargin;
+}
+
+.groupFooter {
+  display: flex;
+  flex-direction: row-reverse; // disable link autofocus
+  align-items: center;
+  margin-top: $blocksMargin;
+}
+
+.linkWrapper {
+  flex-grow: 1;
+}

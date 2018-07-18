@@ -1,0 +1,14 @@
+@import "wix-style-react/src/common.scss";
+@import '../../variables.scss';
+
+.textWrapper {
+  padding: 0 $groupPadding;
+}
+
+.divider {
+  background: $D60;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+

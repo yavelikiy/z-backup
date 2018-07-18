@@ -1,0 +1,10 @@
+@import "wix-style-react/src/common.scss";
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+  margin-bottom: 5px;
+  background: $D10;
+}

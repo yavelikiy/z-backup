@@ -1,0 +1,71 @@
+@import "wix-style-react/src/common.scss";
+@import '../../../variables.scss';
+
+$size: 30px;
+
+.root {
+  display: flex;
+  list-style: none;
+  margin: 0 -8px;
+  padding: 0;
+}
+
+.stepItem {
+  overflow: hidden;
+  position: relative;
+  margin: 0 8px;
+  width: $size;
+  height: $size;
+
+  background: $GR10;
+  border-radius: 50%;
+  transition: background $elementsTransition;
+
+  &.isActive {
+    background: $B10;
+  }
+
+  &.isDone {
+    border: 1px solid $GR10;
+    background: none;
+    transition: none;
+
+    &.hasHandler {
+      cursor: pointer;
+    }
+  }
+}
+
+%stepContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  transition: transform $elementsTransition;
+}
+
+
+.stepNumber {
+  @extend %stepContent;
+
+  .isDone & {
+    transform: translateY(-$size);
+  }
+}
+
+.checkIcon {
+  @extend %stepContent;
+
+  color: $B10;
+  transform: translateY($size);
+
+  .isDone & {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../variables.scss';
+
+.root {
+  display: flex;
+  align-items: center;
+  margin-bottom: $blocksMargin;
+}
+
+.title {
+  flex-grow: 1;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.steps {
+  flex-grow: 0;
+}
