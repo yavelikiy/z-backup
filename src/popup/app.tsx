@@ -7,7 +7,7 @@ import Messages from '../common/Messages';
 import {Banner} from './Components/Banner/Banner';
 import * as s from './App.scss';
 import {getSession, getVendorData, listenToStorageChanges} from '../common/LocalStorage';
-import {STEPS, VENDORS, ZendeskAuthenticationData} from '../common/constants';
+import {STEPS, VENDORS, ZAuthenticationData} from '../common/constants';
 
 const get = require('lodash/get');
 
@@ -18,7 +18,7 @@ export class App extends React.Component<null, AppState> {
 
   state = {
     token: 'J5RLj8jd64b6V9ig7w4sS4mjVwyl0NNSw64Gjys1',
-    url: 'garrisons-by-the-park.zendesk.com',
+    url: 'garrisons-by-the-park.Z.com',
     email: 'evan.cicci74@gmail.com',
     step: STEPS.LOGIN,
     isAuthenticating: false,
@@ -33,7 +33,7 @@ export class App extends React.Component<null, AppState> {
     listenToStorageChanges((updates: any) => {
       const oldStep = get(updates, 'session.oldValue.step');
       const newStep = get(updates, 'session.newValue.step');
-      const newLoadedData = get(updates, VENDORS.ZENDESK + '.newValue');
+      const newLoadedData = get(updates, VENDORS.Z + '.newValue');
 
       if (newStep && newStep !== oldStep) {
         this.setStep(newStep);
@@ -43,7 +43,7 @@ export class App extends React.Component<null, AppState> {
     });
 
     Promise.all([
-      getVendorData(VENDORS.ZENDESK),
+      getVendorData(VENDORS.Z),
       getSession()
     ]).then(([cachedData, session]) => {
       if (session) {
@@ -94,7 +94,7 @@ export class App extends React.Component<null, AppState> {
     });
   }
 
-  authenticate = (loginData: ZendeskAuthenticationData): void => {
+  authenticate = (loginData: ZAuthenticationData): void => {
     this.setState({
       isAuthenticating: true,
       isAuthenticatingError: false

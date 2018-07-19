@@ -15,7 +15,7 @@ export class Header extends React.Component<HeaderProps, null> {
     return (
       <header className={s.root}>
         <div className={s.title}>
-          <Text appearance="H2">Zendesk Export</Text>
+          <Text appearance="H2">Z Export</Text>
         </div>
 
         <div className={s.steps}>

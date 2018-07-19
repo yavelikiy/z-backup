@@ -1,7 +1,7 @@
 {
-  "name": "zendesk-backup",
+  "name": "z-backup",
   "version": "1.0.0",
-  "description": "zendesk-backup",
+  "description": "z-backup",
   "scripts": {
     "magic": "webpack",
     "start": "react-scripts start",

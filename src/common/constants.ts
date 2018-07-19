@@ -6,7 +6,7 @@ export enum LoadingStatus {
 }
 
 export enum VENDORS {
-  ZENDESK =  'zendesk',
+  Z =  'z',
 }
 
 export enum STEPS {
@@ -54,7 +54,7 @@ export interface SESSION {
   credentials: any; // TODO-DR improve it
 }
 
-export interface ZendeskAuthenticationData {
+export interface ZAuthenticationData {
   url: string;
   email: string;
   token: string;
@@ -75,7 +75,7 @@ export const DATA_TYPES_TO_LOAD = [
   DATA_TYPES.TICKETS
 ];
 
-// user 0 to use maximum available items per page for zendesk provider
+// user 0 to use maximum available items per page for Z provider
 export const PAGE_PER_CALL = 0;
 export const VERSION = '1.0.0';
 export const DOWNLOAD_FILE_NAME = 'backup';

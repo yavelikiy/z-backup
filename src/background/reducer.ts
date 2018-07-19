@@ -12,7 +12,7 @@ interface State {
     isFetching: boolean
   },
   error: any,
-  zendesk: object
+  Z: object
 }
 interface ReducerHandlerObject {
   [key: string]: (state: State, payload?: object) => State
@@ -26,7 +26,7 @@ const INITIAL_STATE: State = {
     isFetching: false
   },
   error: null,
-  zendesk: {}
+  Z: {}
 };
 
 const handlers: ReducerHandlerObject = {
@@ -67,7 +67,7 @@ const handlers: ReducerHandlerObject = {
   },
 
   [actions.INIT]: () => {
-    return assignState(INITIAL_STATE, {session: {step: STEPS.LOGIN, vendor: VENDORS.ZENDESK}});
+    return assignState(INITIAL_STATE, {session: {step: STEPS.LOGIN, vendor: VENDORS.Z}});
   },
 
   [actions.ERROR]: (state: State, payload: {error: any}) => {
@@ -102,8 +102,8 @@ export function reducer(state = INITIAL_STATE, action) {
       setError(newState.error);
     }
 
-    if (newState.zendesk !== state.zendesk) {
-      setVendorData(VENDORS.ZENDESK, newState.zendesk);
+    if (newState.Z !== state.Z) {
+      setVendorData(VENDORS.Z, newState.Z);
     }
   }
 

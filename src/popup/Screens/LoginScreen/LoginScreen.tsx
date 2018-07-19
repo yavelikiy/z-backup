@@ -5,16 +5,16 @@ import * as s from './LoginScreen.scss';
 import {InputWithLabel} from './InputWithLabel/InputWithLabel';
 import {ScreenHeader} from '../../Components/ScreenHeader/ScreenHeader';
 import {ErrorMessage} from '../../Components/ErrorMessage/ErrorMessage';
-import {ZendeskAuthenticationData} from '../../../common/constants';
+import {ZAuthenticationData} from '../../../common/constants';
 
 export interface LoginScreenProps {
-  initialData: ZendeskAuthenticationData;
+  initialData: ZAuthenticationData;
   isButtonDisabled: boolean;
   isError: boolean;
-  onButtonClickHandler: (data: ZendeskAuthenticationData) => void;
+  onButtonClickHandler: (data: ZAuthenticationData) => void;
 }
 
-interface LoginScreenState extends ZendeskAuthenticationData {
+interface LoginScreenState extends ZAuthenticationData {
 }
 
 export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
@@ -41,11 +41,11 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
 
     return (
       <div>
-        <ScreenHeader>Connect your Zendesk account</ScreenHeader>
+        <ScreenHeader>Connect your Z account</ScreenHeader>
 
         <InputWithLabel
           name="url"
-          label="Zendesk Account URL"
+          label="Z Account URL"
           value={url}
           onChangeHandler={(e: ChangeEvent<HTMLInputElement>) => this.setState({url: e.target.value})}
           inputProps={{

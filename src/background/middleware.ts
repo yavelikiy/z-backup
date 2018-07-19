@@ -1,7 +1,7 @@
 import {actions} from './actions';
 import Messages from "../common/Messages";
 import {DATA_TYPES, DATA_TYPES_TO_LOAD, LOGOS, VENDORS} from '../common/constants';
-import ZendeskAdaptor from "./Adaptors/ZendeskAdaptor";
+import ZAdaptor from "./Adaptors/ZAdaptor";
 import {getError, getSession, getVendorData, listenToStorageChanges} from "../common/LocalStorage";
 
 const reduce = require('lodash/reduce');
@@ -64,8 +64,8 @@ function onVendorSelect (store, payload) {
   const { vendor } = payload;
 
   switch (vendor) {
-    case VENDORS.ZENDESK:
-      apiAdaptor = new ZendeskAdaptor();
+    case VENDORS.Z:
+      apiAdaptor = new ZAdaptor();
       break;
   }
 
@@ -185,7 +185,7 @@ export function dispatchInit(store) {
   store.dispatch({type: actions.INIT});
 
   //TODO remove this after adding vendor select
-  store.dispatch({type: actions.SELECT_VENDOR, payload: {vendor: VENDORS.ZENDESK}});
+  store.dispatch({type: actions.SELECT_VENDOR, payload: {vendor: VENDORS.Z}});
 }
 
 const handlers: MiddlewareHandlerObject = {

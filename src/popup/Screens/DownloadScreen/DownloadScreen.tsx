@@ -111,7 +111,7 @@ export class DownloadScreen extends React.Component<DownloadScreenProps, any> {
 
     downloadAnchorNode.setAttribute('href', urlData);
     downloadAnchorNode.setAttribute('download', `${DOWNLOAD_FILE_NAME}_${this.getFormattedTime()}.json`);
-    downloadAnchorNode.setAttribute('textContent', `Zendesk Backup.json`);
+    downloadAnchorNode.setAttribute('textContent', `Z Backup.json`);
 
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
@@ -136,7 +136,7 @@ export class DownloadScreen extends React.Component<DownloadScreenProps, any> {
     return JSON.stringify({
       v: VERSION,
       created: Date.now(),
-      vendor: VENDORS.ZENDESK,
+      vendor: VENDORS.Z,
       data: LZUTF8.compress(JSON.stringify(this.props.loadedData), {outputEncoding: 'Base64'})
     });
   }

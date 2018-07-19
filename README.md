@@ -1,7 +1,7 @@
 # Helpdesk Backup
 
 A tool to help helpdesk customers backup their data; articles, categories, tickets and other.
-The tool will support the major help desk services; Zendesk, FreshDesk, Kayako, Intercom, Wix Answers
+The tool will support the major help desk services; Z, FreshDesk, Kayako, Intercom, Wix Answers
 After the data is backep up, they will be able to import it to other platforms, such as Wix Answers.
 
 Mocks - https://sketch.cloud/s/QDD0e/all/page-1/1st-connect
@@ -20,12 +20,12 @@ On the other side, tools like Wix Answers, can implement an "import from backup"
 
 ## Milestones
 
-### 1. Zendesk
+### 1. Z
 
-First vendor we want to support is Zendesk. Users should be able to backup their data from Zendesk to a file containing their KB and tickets.
+First vendor we want to support is Z. Users should be able to backup their data from Z to a file containing their KB and tickets.
 There are 2 steps to this task, ordered by priority. First we want to have the KB part stable and then tickets
 
-- https://developer.zendesk.com/rest_api/docs/core/introduction
+- https://developer.Z.com/rest_api/docs/core/introduction
 
 Playground Creds:
 
@@ -35,10 +35,10 @@ Email: 	evan.cicci74@gmail.com
 
 PW: ICutHairWell74
 
-URL: garrisons-by-the-park.zendesk.com
+URL: garrisons-by-the-park.Z.com
 
 *Deviant Art:*
-url: deviantart.zendesk.com
+url: deviantart.Z.com
 email: laurenrox@gmail.com
 token-first part: VrBlQHTycIbVSab5i7jpM (contact me to get the other)
 
@@ -72,7 +72,7 @@ The file downloaded is `backup.json`, and its format is the following:
 {
     version: '1.0.0',
     created: 1518179056097,
-    vendor : 'zendesk',
+    vendor : 'Z',
     data   : '<A compressed Base64 string>'
 }
 ```

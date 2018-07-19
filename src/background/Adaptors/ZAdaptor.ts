@@ -1,6 +1,6 @@
 import Adaptor from './Adaptor';
 import axios, {CancelToken, CancelTokenStatic} from "axios";
-import {DATA_TYPES, PAGE_PER_CALL, ZendeskAuthenticationData} from '../../common/constants';
+import {DATA_TYPES, PAGE_PER_CALL, ZAuthenticationData} from '../../common/constants';
 
 const forEach = require('lodash/forEach');
 const get = require('lodash/get');
@@ -8,17 +8,17 @@ const isEmpty = require('lodash/isEmpty');
 const values = require('lodash/values');
 const noop = require('lodash/noop');
 
-interface ZendeskFetchData {
+interface ZFetchData {
   cachedData?: any;
   dataTypes: DATA_TYPES[];
   limit?: number;
 }
-interface ZendeskStatusData {
+interface ZStatusData {
   article?: object;
   categories?: object;
   sections?: object;
 }
-interface ZendeskResponse {
+interface ZResponse {
   page: number;
   count: number;
   per_page: number;
@@ -59,9 +59,9 @@ function validateStatus(status) {
   return isValid
 }
 
-export default class ZendeskAdaptor implements Adaptor<ZendeskAuthenticationData, ZendeskFetchData, ZendeskStatusData> {
+export default class ZAdaptor implements Adaptor<ZAuthenticationData, ZFetchData, ZStatusData> {
   private listener: Function;
-  private data: ZendeskStatusData;
+  private data: ZStatusData;
   private url: string;
   private email: string;
   private token: string;
@@ -74,7 +74,7 @@ export default class ZendeskAdaptor implements Adaptor<ZendeskAuthenticationData
     this.source = CancelToken.source();
   }
 
-  authenticate(params: ZendeskAuthenticationData) {
+  authenticate(params: ZAuthenticationData) {
     const {url, email, token} = params;
     this.email = email;
     this.token = token;
@@ -87,11 +87,11 @@ export default class ZendeskAdaptor implements Adaptor<ZendeskAuthenticationData
       });
   }
 
-  onProgress(callback: (status: ZendeskStatusData) => void) {
+  onProgress(callback: (status: ZStatusData) => void) {
     this.listener = callback;
   }
 
-  getData(params: ZendeskFetchData = {dataTypes: [], cachedData: {}, limit: Infinity}) {
+  getData(params: ZFetchData = {dataTypes: [], cachedData: {}, limit: Infinity}) {
     const {dataTypes, cachedData, limit = Infinity} = params;
     const promises = [];
     this.data = isEmpty(cachedData) ? this.data : cachedData;
@@ -160,7 +160,7 @@ export default class ZendeskAdaptor implements Adaptor<ZendeskAuthenticationData
   private fetchPageAndUpdate(type: string, apiUrl: string): Promise<string> {
     return new Promise((resolve, reject) => {
       this.get(apiUrl)
-        .then((page: ZendeskResponse) => {
+        .then((page: ZResponse) => {
           this.processNewData(page, type);
           this.listener(this.data);
           resolve(page.next_page);
@@ -205,7 +205,7 @@ export default class ZendeskAdaptor implements Adaptor<ZendeskAuthenticationData
     return this.url + endpoint;
   }
 
-  private processNewData(page: ZendeskResponse, type: string) {
+  private processNewData(page: ZResponse, type: string) {
     if (!this.data[type]) {
       this.data[type] = {data: []};
     }

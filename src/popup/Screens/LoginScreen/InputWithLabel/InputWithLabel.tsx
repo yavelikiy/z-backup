@@ -4,10 +4,10 @@ import Input from 'wix-style-react/Input';
 import TextField from 'wix-style-react/TextField';
 import Label from 'wix-style-react/Label';
 import * as s from './InputWithLabel.scss';
-import {ZendeskAuthenticationData} from '../../../../common/constants';
+import {ZAuthenticationData} from '../../../../common/constants';
 
 export interface InputWithLabelProps {
-  name: keyof ZendeskAuthenticationData;
+  name: keyof ZAuthenticationData;
   label: string;
   value: string;
   onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
